@@ -36,25 +36,28 @@ version = pluginVersion
 repositories {
     mavenCentral()
     jcenter()
+    maven("http://dl.bintray.com/jetbrains/intellij-plugin-service")
 }
+
+
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.10.0")
+    detektPlugins("com.github.adedayo.intellij.sdk:java-psi-api")
+
 }
 
 // Configure gradle-intellij-plugin plugin.
 // Read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
-    pluginName = pluginName
-    version = platformVersion
-    type = platformType
-    downloadSources = platformDownloadSources.toBoolean()
-    updateSinceUntilBuild = true
-
+    pluginName = "CPC"
+    version = "201.8743.12"
+//    localPath = "/Applications/IntelliJ IDEA CE.app"
+    updateSinceUntilBuild = false
 //  Plugin Dependencies:
 //  https://www.jetbrains.org/intellij/sdk/docs/basics/plugin_structure/plugin_dependencies.html
 //
-//  setPlugins("java")
+  setPlugins("java")
 }
 
 // Configure detekt plugin.
