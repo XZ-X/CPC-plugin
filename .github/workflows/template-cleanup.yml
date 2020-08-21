@@ -47,14 +47,14 @@ jobs:
           find . -type f -exec sed -i '/#REMOVE-ON-CLEANUP#/d' {} +
 
           # Move content
-          mkdir -p src/main/kotlin/${GROUP//.//}
+          mkdir -p src/main/java/${GROUP//.//}
           cp -R .github/template-cleanup/* .
-          cp -R src/main/kotlin/org/jetbrains/plugins/template/* src/main/kotlin/${GROUP//.//}/
+          cp -R src/main/java* src/main/java/${GROUP//.//}/
 
           # Cleanup
           rm -rf .github/readme
           rm -rf .github/template-cleanup
-          rm -rf src/main/kotlin/org
+          rm -rf src/main/java
           rm .github/workflows/template-cleanup.yml
 
       # Commit modified files
